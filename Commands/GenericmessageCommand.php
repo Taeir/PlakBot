@@ -1,7 +1,7 @@
 <?php
 namespace Longman\TelegramBot\Commands\SystemCommands;
 
-use \CloudConvert\Api;
+//use \CloudConvert\Api;
 use Longman\TelegramBot\Entities\File;
 use Longman\TelegramBot\Entities\Sticker;
 use Longman\TelegramBot\Entities\StickerSet;
@@ -100,11 +100,12 @@ class GenericmessageCommand extends SystemCommand
             $this->logMsg('Converting ' . $original_file_id. ' (' . $webp_file_name . ')');
             
             //Conversion with native PHP
-            //$im = imagecreatefromwebp($webp_file_path);
-            //imagepng($im, $png_file_path); //TODO Add quality parameter?
-            //imagedestroy($im);
-            //unlink($webp_file_path);
+            $im = imagecreatefromwebp($webp_file_path);
+            imagepng($im, $png_file_path);
+            imagedestroy($im);
+            unlink($webp_file_path);
             
+            /*
             //Conversion with CloudConvert.
             $webp_file_handle = null;
             try {
@@ -139,6 +140,7 @@ class GenericmessageCommand extends SystemCommand
                 
                 unlink($webp_file_path);
             }
+            */
         } else {
             $this->logMsg('Skipped download and conversion, using ' . $original_file_id . '.png from cache');
         }
