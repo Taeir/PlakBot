@@ -1,0 +1,15 @@
+{
+    "name": "plakbot/plakbot",
+    "type": "project",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Taeir/core"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "longman/telegram-bot": "dev-patch-1",
+        "cloudconvert/cloudconvert-php": "2.2.*"
+    }
+}
