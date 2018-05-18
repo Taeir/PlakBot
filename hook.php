@@ -2,7 +2,7 @@
 // Load composer
 require __DIR__ . '/vendor/autoload.php';
 
-include('config.php');
+$configs = include('config.php');
 
 $commands_paths = [
     __DIR__ . '/Commands/',
@@ -10,23 +10,26 @@ $commands_paths = [
 
 try {
     // Create Telegram API object
-    $telegram = new Longman\TelegramBot\Telegram($bot_api_key, $bot_username);
+    $telegram = new Longman\TelegramBot\Telegram($configs['api_key'], $configs['username']);
     
     $telegram->addCommandsPaths($commands_paths);
     
-    Longman\TelegramBot\TelegramLog::initErrorLog(__DIR__ . "/logs/{$bot_username}_error.log");
-    Longman\TelegramBot\TelegramLog::initDebugLog(__DIR__ . "/logs/{$bot_username}_debug.log");
-    Longman\TelegramBot\TelegramLog::initUpdateLog(__DIR__ . "/logs/{$bot_username}_update.log");
+    if ($configs['log_errors'] === true) {
+        Longman\TelegramBot\TelegramLog::initErrorLog($configs['log_location'] . "/{$bot_username}_error.log");
+    }
+    if ($configs['log_debug'] === true) {
+        Longman\TelegramBot\TelegramLog::initDebugLog($configs['log_location'] . "/{$bot_username}_debug.log");
+        Longman\TelegramBot\TelegramLog::initUpdateLog($configs['log_location'] . "/{$bot_username}_update.log");
+    }
     
-    $telegram->setDownloadPath(__DIR__ . '/downloads');
-    $telegram->setUploadPath(__DIR__ . '/uploads');
+    $telegram->setDownloadPath($configs['download_path']);
+    $telegram->setUploadPath($configs['upload_path']);
     
     $telegram->enableLimiter();
     
     $telegram->handle();
 } catch (Longman\TelegramBot\Exception\TelegramException $e) {
-    file_put_contents(__DIR__ . '/logs/error.log', 'Hook error: ' . $e . PHP_EOL, FILE_APPEND | LOCK_EX);
     Longman\TelegramBot\TelegramLog::error($e);
 } catch (Longman\TelegramBot\Exception\TelegramLogException $e) {
-    file_put_contents(__DIR__ . '/logs/error.log', 'Hook error: Log exception: ' . $e . PHP_EOL, FILE_APPEND | LOCK_EX);
+    //Logging went wrong, just swallow the exception in this case.
 }
