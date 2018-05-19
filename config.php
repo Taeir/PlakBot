@@ -13,8 +13,22 @@ return array(
     'hook_url'      => '',
     
     //=============================================================================================
-    //Downloads and uploads
+    //MySQL
     //=============================================================================================
+    'enable_mysql' => false,
+    'mysql'        => [
+        'host'     => 'localhost',
+        'user'     => '',
+        'password' => '',
+        'database' => 'plakbot',
+    ],
+    
+    //=============================================================================================
+    //Folders
+    //=============================================================================================
+    //Path of the Commands folder
+    'commands_path' => __DIR__ . '/Commands',
+    
     //Path of the folder where the original stickers (webp) will be downloaded to
     'download_path' => __DIR__ . '/downloads',
     

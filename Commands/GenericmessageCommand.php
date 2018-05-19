@@ -65,6 +65,11 @@ class GenericmessageCommand extends SystemCommand
         $from         = $message->getFrom();
         $user_id      = $from->getId();
         
+        //Check config
+        if ($this->configs === false) {
+            return $this->sendReply($chat_id, $message_id, 'Config file not found!');
+        }
+        
         //Log the message
         $this->logMsg('Received message ' . $message);
 
