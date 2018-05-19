@@ -248,12 +248,14 @@ class GenericmessageCommand extends SystemCommand
         try {
             $get_sticker_set_response = Request::getStickerSet(['name' => $sticker_set_name]);
             if (!$get_sticker_set_response->isOk()) {
+                sleep(5);
                 return false;
             } else {
                 return true;
             }
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->errMsg('Error getting sticker set: ' . $e->getMessage());
+            sleep(5);
             return false;
         }
     }
