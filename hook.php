@@ -15,11 +15,11 @@ try {
     $telegram->addCommandsPaths($commands_paths);
     
     if ($configs['log_errors'] === true) {
-        Longman\TelegramBot\TelegramLog::initErrorLog($configs['log_location'] . "/{$bot_username}_error.log");
+        Longman\TelegramBot\TelegramLog::initErrorLog($configs['log_location'] . "/{$configs['username']}_error.log");
     }
     if ($configs['log_debug'] === true) {
-        Longman\TelegramBot\TelegramLog::initDebugLog($configs['log_location'] . "/{$bot_username}_debug.log");
-        Longman\TelegramBot\TelegramLog::initUpdateLog($configs['log_location'] . "/{$bot_username}_update.log");
+        Longman\TelegramBot\TelegramLog::initDebugLog($configs['log_location'] . "/{$configs['username']}_debug.log");
+        Longman\TelegramBot\TelegramLog::initUpdateLog($configs['log_location'] . "/{$configs['username']}_update.log");
     }
     
     $telegram->setDownloadPath($configs['download_path']);
