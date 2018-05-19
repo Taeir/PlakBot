@@ -4,7 +4,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/Taeir/core"
+            "url": "git@github.com:/Taeir/core.git"
         }
     ],
     "require": {
