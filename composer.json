@@ -4,11 +4,11 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/Taeir/core"
+            "url": "git@github.com:Taeir/core.git"
         }
     ],
     "require": {
-        "php": ">=5.5",
+        "php": ">=7.0",
         "longman/telegram-bot": "dev-patch-1",
         "cloudconvert/cloudconvert-php": "2.2.*"
     }

@@ -1,5 +1,5 @@
-composer.lock
-htaccess allow all/
-htaccess site/
+.idea/
 logs/
 vendor/
+downloads/
+uploads/
