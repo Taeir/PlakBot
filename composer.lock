@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a3724c6a57ec5bf79535b2bb4ff86175",
+    "content-hash": "1d5e755f178a37184ae4be7215007188",
     "packages": [
         {
             "name": "cloudconvert/cloudconvert-php",
@@ -487,7 +487,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.0"
+        "php": ">=7.2"
     },
     "platform-dev": []
 }

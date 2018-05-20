@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.2",
         "longman/telegram-bot": "dev-patch-1",
         "cloudconvert/cloudconvert-php": "2.2.*"
     }
