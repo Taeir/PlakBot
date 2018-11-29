@@ -3,3 +3,4 @@ htaccess allow all/
 htaccess site/
 logs/
 vendor/
+.idea/
