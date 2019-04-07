@@ -1,4 +1,8 @@
 logs/
 vendor/
+<<<<<<< HEAD
 downloads
 uploads
+=======
+.idea/
+>>>>>>> e81eac5b25f70405f589f075845832e2aea394fb

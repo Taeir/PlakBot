@@ -3,6 +3,9 @@
 require __DIR__ . '/vendor/autoload.php';
 
 $configs = include('config.php');
+if ($configs === false) {
+    die('Unable to find config file!');
+}
 
 try {
     // Create Telegram API object
