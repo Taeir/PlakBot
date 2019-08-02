@@ -336,7 +336,7 @@ class GenericmessageCommand extends SystemCommand
                 'name'        => $sticker_set_name,
                 'png_sticker' => $fh,
             ];
-            if ($emojis != "") $data['emojis'] = $emojis;
+            if ($emojis != "" && $emojis != null) $data['emojis'] = $emojis;
             $this->logMsg('Checking if sticker set ' . $sticker_set_name . ' already exists');
             if ($this->stickerSetExists($sticker_set_name)) {
                 //Add sticker to existing set
